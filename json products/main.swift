@@ -33,9 +33,9 @@ struct Products: Codable {
 }
 
 class Shop: Decodable {
-    private var prod: [Products] = [] {
+    private var goods: [Products] = [] {
         didSet {
-            print(prod)
+            print(goods)
         }
     }
     
@@ -45,7 +45,7 @@ class Shop: Decodable {
         
         do {
             let decodedProducts = try productsDecoder.decode([Products].self, from: productsData)
-           prod = decodedProducts
+           goods = decodedProducts
         }catch{
             print("Error: \(error.localizedDescription)")
         }
